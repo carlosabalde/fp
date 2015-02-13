@@ -17,7 +17,7 @@
         var poll = function() {
           if (instance.is_ready() || ((new Date()).getTime() - now > 2000)) {
             $('#fingerprint').text(instance.get());
-            $('#properties').text(instance.get_properties());
+            $('#properties').html(instance.get_properties().replace('\n', '<br/>'));
           } else {
             setTimeout(poll, 50);
           }
