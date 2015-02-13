@@ -12,8 +12,10 @@
         instance = new Fingerprint({
           swf: '/fp/apw.swf'
         });
+
+        var now = (new Date()).getTime();
         var poll = function() {
-          if (instance.is_ready()) {
+          if (instance.is_ready() || ((new Date()).getTime() - now > 2000)) {
             $('#fingerprint').text(instance.get());
             $('#properties').text(instance.get_properties());
           } else {
