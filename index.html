@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+  <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+  <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+  <script src="//fp/fingerprint.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      (function (window, document, undefined) {
+        var instance = new Fingerprint({
+          swf: '/fp/apw.swf'
+        });
+        var poll = function() {
+          if (instance.is_ready()) {
+            $('#fingerprint').text(instance.get());
+            $('#properties').text(instance.get_properties());
+          } else {
+            setTimeout(poll, 50);
+          }
+        };
+        poll();
+      })(window, document);
+    });
+  </script>
+<body>
+  <pre id="fingerprint"></pre>
+  <pre id="properties"></pre>
+</body>
+</html>
