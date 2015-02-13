@@ -6,9 +6,10 @@
   <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
   <script src="//carlosabalde.github.io/fp/fingerprint.js"></script>
   <script type="text/javascript">
+    var instance = null;
     $(document).ready(function() {
       (function (window, document, undefined) {
-        var instance = new Fingerprint({
+        instance = new Fingerprint({
           swf: '/fp/apw.swf'
         });
         var poll = function() {
